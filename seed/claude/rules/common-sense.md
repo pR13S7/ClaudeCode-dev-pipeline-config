@@ -1,0 +1,11 @@
+Common sense rules:
+- Plan first. Do not code until the plan is accepted.
+- Use the smallest possible diff.
+- No unrelated refactors or renames.
+- Explain root cause before proposing a fix.
+- Match existing repo patterns.
+- Every behavior change requires proof.
+- Always run the project's build and test commands before final output.
+- Auth, billing, migrations, and secrets require extra review.
+- Compact context at milestones.
+- If there is no proof, the work is still a draft.

@@ -1,0 +1,92 @@
+{
+  "env": {
+    "ENABLE_TOOL_SEARCH": "auto"
+  },
+  "permissions": {
+    "defaultMode": "plan",
+    "allow": [
+      "mcp__codegraph__codegraph_search",
+      "mcp__codegraph__codegraph_context",
+      "mcp__codegraph__codegraph_callers",
+      "mcp__codegraph__codegraph_callees",
+      "mcp__codegraph__codegraph_impact",
+      "mcp__codegraph__codegraph_node",
+      "mcp__codegraph__codegraph_status",
+      "mcp__codegraph__codegraph_files",
+      "mcp__codegraph__codegraph_explore",
+      "mcp__plugin_context-mode_context-mode__ctx_search",
+      "mcp__plugin_context-mode_context-mode__ctx_batch_execute",
+      "mcp__plugin_context-mode_context-mode__ctx_execute",
+      "mcp__plugin_context-mode_context-mode__ctx_execute_file",
+      "mcp__plugin_context-mode_context-mode__ctx_fetch_and_index",
+      "mcp__plugin_context-mode_context-mode__ctx_upgrade",
+      "mcp__plugin_context-mode_context-mode__ctx_doctor",
+      "Read",
+      "Grep",
+      "Glob",
+      "Bash(git status)",
+      "Bash(git diff:*)",
+      "Bash(ls:*)",
+      "Bash(npm test:*)",
+      "WebSearch"
+    ],
+    "deny": [
+      "Bash(rm -rf:*)",
+      "WebFetch(domain:*.internal)",
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./secrets/**)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "__CLAUDE_DIR__/hooks/context-mode-cache-heal.mjs"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "__CLAUDE_DIR__/hooks/permission-screen.mjs"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "/bin/bash __CLAUDE_DIR__/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "claude-code-setup@claude-plugins-official": true,
+    "context-mode@context-mode": true,
+    "feature-dev@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "claude-mem@thedotmack": true
+  },
+  "extraKnownMarketplaces": {
+    "context-mode": {
+      "source": {
+        "source": "github",
+        "repo": "mksglu/context-mode"
+      }
+    },
+    "thedotmack": {
+      "source": {
+        "source": "github",
+        "repo": "thedotmack/claude-mem"
+      }
+    }
+  },
+  "skipWebFetchPreflight": true,
+  "effortLevel": "medium",
+  "theme": "dark-ansi"
+}
