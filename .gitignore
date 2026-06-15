@@ -2,3 +2,9 @@
 .claude
 .codegraph
 .wolf
+.vscode
+seed/dotfiles/**/*.bak
+seed/dotfiles/**/.git/
+seed/dotfiles/**/__pycache__/
+seed/dotfiles/config/kitty/theme.conf
+seed/dotfiles/**/kitty-themes/
