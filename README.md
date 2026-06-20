@@ -20,6 +20,9 @@ A shareable seed of a Claude Code configuration: behavioral rules, a plan→revi
 | `seed/claude/agents/dead-code.md` | Agent: identifies dead/unreachable code introduced or uncovered by changes |
 | `seed/claude/agents/pr-summarizer.md` | Agent: writes a concise, human-readable PR summary from a diff |
 | `seed/claude/commands/pipeline.md` | `/pipeline` slash command — orchestrates the full plan→review→implement→verify loop |
+| `seed/claude/commands/cleanup-branches.md` | `/cleanup-branches` — delete local branches whose remote is gone; lists + confirms, never force-deletes |
+| `seed/claude/commands/test-green.md` | `/test-green` — run tests+coverage and loop fixing failures/gaps until thresholds pass |
+| `seed/claude/commands/options.md` | `/options` — generate three distinct approaches (ship-fast / maintainable / robust) before committing |
 | `seed/claude/hooks/permission-screen.mjs` | PreToolUse Bash hook: silently auto-approves a strict read-only allowlist, blocks dangerous patterns |
 | `seed/claude/hooks/context-mode-cache-heal.mjs` | SessionStart hook: heals the context-mode plugin cache; no-ops if plugin is absent |
 | `seed/claude/statusline-command.sh` | Shell script powering the Claude Code statusline (requires `jq`) |
