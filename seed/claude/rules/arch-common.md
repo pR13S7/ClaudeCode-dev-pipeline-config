@@ -14,6 +14,8 @@ Before implementing:
 - If a simpler approach exists, say so. Push back when warranted.
 - If something is unclear, stop. Name what's confusing. Ask.
 
+**Confusion Protocol:** The moment you detect ambiguity on a non-trivial or architectural decision, halt. Do not pick one interpretation and proceed. State each viable interpretation, the tradeoff between them, and your recommendation, then wait for the user to choose. Guessing on a decision that is expensive to reverse is the failure mode this prevents.
+
 ## 2. Simplicity First
 
 **Minimum code that solves the problem. Nothing speculative.**
