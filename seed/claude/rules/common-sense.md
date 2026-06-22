@@ -5,7 +5,7 @@ Common sense rules:
 - Explain root cause before proposing a fix.
 - Match existing repo patterns.
 - Every behavior change requires proof.
-- Always run the project's build and test commands before final output.
+- Always run the project's build and test commands before final output. "Done" = the project's exact build/lint/type/test commands all pass; list those commands here per-stack once known.
 - Auth, billing, migrations, and secrets require extra review.
 - Compact context at milestones.
 - If there is no proof, the work is still a draft.
