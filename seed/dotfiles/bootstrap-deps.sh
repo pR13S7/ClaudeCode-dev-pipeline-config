@@ -139,13 +139,26 @@ _clone_if_missing "https://github.com/romkatv/powerlevel10k" \
 # ---------------------------------------------------------------------------
 # 8. Claude Code
 # ---------------------------------------------------------------------------
-echo "==> [8/8] Checking Claude Code..."
+echo "==> [8/9] Checking Claude Code..."
 if command -v claude >/dev/null 2>&1; then
   echo "    claude: already installed ($(claude --version 2>/dev/null || echo 'version unknown'))"
 else
   echo "    Installing Claude Code..."
   npm install -g @anthropic-ai/claude-code
 fi
+
+# ---------------------------------------------------------------------------
+# 9. RTK (Rust Token Killer) — CLI proxy, 60-90% token savings on dev commands
+# ---------------------------------------------------------------------------
+echo "==> [9/9] Checking RTK..."
+if brew list rtk >/dev/null 2>&1; then
+  echo "    rtk: already installed"
+else
+  echo "    Installing rtk..."
+  brew install rtk
+fi
+# Wire the Claude Code PreToolUse hook + RTK.md into ~/.claude (non-interactive).
+rtk init -g --auto-patch
 
 # ---------------------------------------------------------------------------
 # Done
@@ -157,7 +170,7 @@ echo ""
 echo "  Installed: starship neovim bat fzf ripgrep fd lazygit jq atuin"
 echo "             broot git tmux direnv node ruby colorls kitty"
 echo "             1password-cli font-blex-mono-nerd-font oh-my-zsh"
-echo "             zsh-plugins powerlevel10k claude-code"
+echo "             zsh-plugins powerlevel10k claude-code rtk"
 echo ""
 echo "  NOTE: Language runtimes (go, java, python, nvm, pnpm, bun)"
 echo "        and Amazon Q are NOT installed — add them separately."
